@@ -8,16 +8,20 @@ namespace multifabriken_Muzze1994
         static void Main(string[] args)
         {
 
+            //Lists for all created classes
             List<Tofu> tofu = new List<Tofu>();
             List<Car> car = new List<Car>();
             List<Candy> candy = new List<Candy>();
             List<Strings> strings = new List<Strings>();
 
+            //Used in the while-loop to keep the program running 
             bool isRunning = true;
 
-
+            //Makes the program running until you give the wrong input-type or press the number 6
             while (isRunning)
             {
+
+                //Menu for the program 
                 Console.WriteLine("\n\tVälkommen till multifabriken!");
                 Console.WriteLine("\t[1] Beställ tofu");
                 Console.WriteLine("\t[2] Beställ godis");
@@ -28,8 +32,11 @@ namespace multifabriken_Muzze1994
                 Console.WriteLine("\tVälj: ");
                 int menu = Convert.ToInt32(Console.ReadLine());
 
+                //When you press a number between 1-6 a different case happens depending on what number you press
                 switch (menu)
                 {
+                    //Case 1-4 you add a new object into a list depending on what number you chose
+                    //1 for tofu, 2 for candy etc
                     case 1:
 
                         string spice = "";
@@ -39,10 +46,10 @@ namespace multifabriken_Muzze1994
                         Console.WriteLine("Välj volymen: ");
                         volume = (Convert.ToInt32(Console.ReadLine()));
                         Console.WriteLine("Välj kryddningen: ");
-                        spice = (Console.ReadLine());
+                        spice = Console.ReadLine();
 
+                        //A new object gets added with the information the user provided, same for all cases 1-4
                         tofu.Add(new Tofu { Spice = spice, Volume = volume });
-
 
                         break;
 
@@ -51,18 +58,17 @@ namespace multifabriken_Muzze1994
                         string taste = "";
                         int quantity = 0;
 
-                        Console.WriteLine("Du valde att beställa tofu!");
+                        Console.WriteLine("Du valde att beställa godis!");
                         Console.WriteLine("Välj antal: ");
                         quantity = (Convert.ToInt32(Console.ReadLine()));
                         Console.WriteLine("Välj smak: ");
-                        taste = (Console.ReadLine());
+                        taste = Console.ReadLine();
 
                         candy.Add(new Candy { Taste = taste, Quantity = quantity });
 
                         break;
 
                     case 3:
-
 
                         string regnr = "";
                         string carColor = "";
@@ -77,37 +83,35 @@ namespace multifabriken_Muzze1994
                         brand = Console.ReadLine();
 
                         car.Add(new Car { Regnr = regnr, Color = carColor, Brand = brand });
+
                         break;
                     case 4:
-
 
                         string stringColor = "";
                         int length = 0;
 
-                        Console.WriteLine("Du valde att beställa tofu!");
+                        Console.WriteLine("Du valde att beställa snören!");
                         Console.WriteLine("Välj längd: ");
                         length = (Convert.ToInt32(Console.ReadLine()));
                         Console.WriteLine("Välj färg: ");
-                        stringColor = (Console.ReadLine());
+                        stringColor = Console.ReadLine();
 
                         strings.Add(new Strings { StringColor = stringColor, Length = length });
+
                         break;
                     case 5:
-
-
+                        
+                        //If there is nothing in the list for each class there is no output in the console
+                        //If the list is not empty you write out each object in the list in a consol.writeline
                         if (tofu.Count != 0)
                         {
                             Console.WriteLine("Tofu ");
                             foreach (Tofu tofus in tofu)
                             {
-
-                                Console.WriteLine($"Volym: {tofus.Volume} Krydda: {tofus.Spice}");
+                                Console.WriteLine($"Volym: {tofus.Volume}g Krydda: {tofus.Spice}");
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("Du har inte beställt tofu!");
-                        }
+
                         if (car.Count != 0)
                         {
                             Console.WriteLine("Bilar ");
@@ -117,39 +121,30 @@ namespace multifabriken_Muzze1994
                             }
 
                         }
-                        else
-                        {
-                            Console.WriteLine("Du har inte beställt någon bil!");
-                        }
+
                         if (candy.Count != 0)
                         {
                             Console.WriteLine("Godis ");
                             foreach (Candy candys in candy)
                             {
-                                Console.WriteLine($"Kvantitet: {candys.Quantity} Smak: {candys.Taste}");
+                                Console.WriteLine($"Kvantitet: {candys.Quantity}st Smak: {candys.Taste}");
                             }
 
                         }
-                        else
-                        {
-                            Console.WriteLine("Du har inte beställt något godis!");
-                        }
+
                         if (strings.Count != 0)
                         {
-                            Console.WriteLine("Strängar ");
+                            Console.WriteLine("Snören ");
                             foreach (Strings String in strings)
                             {
-                                Console.WriteLine($"Färg: {String.StringColor} Längd: {String.Length}");
+                                Console.WriteLine($"Färg: {String.StringColor} Längd: {String.Length}m");
                             }
 
-                        }
-                        else
-                        {
-                            Console.WriteLine("Du har inte beställt några strängar!");
                         }
 
                         break;
 
+                    //If you press the number 6 the program will exit
                     case 6:
 
                         Console.WriteLine("Nu avslutas programmet!");
