@@ -1,0 +1,1 @@
+För att starta programmet skriv in dotnet run i terminalen/konsollen. Sedan får du upp en meny med val.
